@@ -1,6 +1,4 @@
-#include <stdlib.h>
 #include "lists.h"
-
 /**
  * check_cycle - Func checks linked list contains for a cycle
  * @list: linked list
@@ -20,11 +18,11 @@ int check_cycle(listint_t *list)
 
 	while (slow && fast && fast->next)
 	{
-		if (slow == fast)
-			return (1);
-
 		slow = slow->next;
 		fast = fast->next->next;
+
+		if (slow == fast)
+			return (1);
 	}
 	return (0);
 }
