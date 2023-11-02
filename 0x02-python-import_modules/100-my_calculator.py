@@ -1,22 +1,24 @@
 #!/usr/bin/python3
 if __name__ == "__main__":
     import sys
-    if len(sys.argv) != 4:
+    from calculator_1 import add, sub, mul, div
+    av = sys.argv[1:]
+    ac = len(argv)
+    operators = ["+", "-", "*", "/"]
+    if ac != 3:
         print("Usage: ./100-my_calculator.py <a> <operator> <b>")
         exit(1)
-
-        from calculator_1 import add, sub, mul, div
+    elif sys.argv[2] not in operators:
+        print("Unknown operator. Available operators: +, -, * and /")
+        exit(1)
+    else:
         a = int(sys.argv[1])
         b = int(sys.argv[3])
-
         if sys.argv[2] == "+":
-            print("{} + {} = {}".format(a, b, add(a, b)))
+            print("{:d} + {:d} = {:d}".format(a, b, add(a, b)))
         elif sys.argv[2] == "-":
-            print("{} - {} = {}".format(a, b, sub(a, b)))
+            print("{:d} - {:d} = {:d}".format(a, b, sub(a, b)))
         elif sys.argv[2] == "*":
-            print("{} * {} = {}".format(a, b, mul(a, b)))
+            print("{:d} * {:d} = {:d}".format(a, b, mul(a, b)))
         elif sys.argv[2] == "/":
-            print("{} / {} = {}".format(a, b, div(a, b)))
-        else:
-            print("Unknown operator. Available operators: +, -, * and /")
-            exit(1)
+            print("{:d} / {:d} = {:d}".format(a, b, div(a, b)))
