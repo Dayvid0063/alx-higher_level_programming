@@ -1,4 +1,13 @@
 #!/usr/bin/python3
 def print_matrix_integer(matrix=[[]]):
-    for u in matrix
-    print(' '.join('{:d}'.format(j)for j in u))
+    if not matrix:
+        print()
+    else:
+        for u in range(len(matrix)):
+            for v in range(len(matrix[u])):
+                if v != len(matrix[u]) - 1:
+                    endspace = ' '
+                else:
+                    endspace = ''
+                    print("{:d}".format(matrix[u][v]), end=endspace)
+                    print()
