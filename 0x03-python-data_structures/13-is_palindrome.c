@@ -1,13 +1,16 @@
 #include "lists.h"
 
+listint_t *add_nodeint(listint_t **head, const int n);
+int is_palindrome(listint_t **head);
+
 /**
- * add_nodeint - Func adds new node
+ * add_node - Func adds new node
  * @head: Head
  * @n: Num to add
  *
  * Return: Element address, NULL if otherwise
  */
-listint_t *add_nodeint(listint_t **head, const int n)
+listint_t *add_node(listint_t **head, const int n)
 {
 	listint_t *u;
 
@@ -35,7 +38,7 @@ int is_palindrome(listint_t **head)
 		return (1);
 	while (top != NULL)
 	{
-		add_nodeint(&v, top->n);
+		add_node(&v, top->n);
 		top = top->next;
 	}
 	w = v;
