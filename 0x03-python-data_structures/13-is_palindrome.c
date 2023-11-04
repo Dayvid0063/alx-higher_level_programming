@@ -1,8 +1,12 @@
 #include "lists.h"
+#include <stdlib.h>
+#include <stdio.h>
+
 /**
  * add_nodeint - Func adds new node
  * @head: Head
  * @n: Num to add
+ *
  * Return: Element address, NULL if otherwise
  */
 listint_t *add_nodeint(listint_t **head, const int n)
@@ -21,6 +25,7 @@ listint_t *add_nodeint(listint_t **head, const int n)
 /**
  * is_palindrome - Func checks if a list is palindrome
  * @head: Head
+ *
  * Return: 0 if it is not a palindrome, 1 if it is a palindrome
  */
 int is_palindrome(listint_t **head)
