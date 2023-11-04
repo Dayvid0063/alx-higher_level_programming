@@ -1,57 +1,71 @@
 #include "lists.h"
 
-listint_t *add_nodeint(listint_t **head, const int n);
-int is_palindrome(listint_t **head);
-
 /**
- * add_node - Func adds new node
+ * moveback_listint - Func moves a list back
  * @head: Head
- * @n: Num to add
  *
- * Return: Element address, NULL if otherwise
+ * Return: Ptr to node
  */
-listint_t *add_node(listint_t **head, const int n)
+void moveback_listint(listint_t **head)
 {
-	listint_t *u;
+	listint_t *prev = NULL;
+	listint_t *new = *head;
+	listint_t *next = NULL;
 
-	u = malloc(sizeof(listint_t));
-	if (u == NULL)
-		return (NULL);
-	u->n = n;
-	u->next = *head;
-	*head = u;
-	return (u);
+	while (new)
+	{
+		next = new->next;
+		new->next = prev;
+		prev = new;
+		new = next;
+	}
+
+	*head = prev;
 }
 
 /**
- * is_palindrome - Func checks if a list is palindrome
+ * is_palindrome - Func checks list is palindrome
  * @head: Head
  *
- * Return: 0 if it is not a palindrome, 1 if it is a palindrome
+ * Return: 1 if it is palindrome, 0 if otherwise
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *top = *head;
-	listint_t *v = NULL, *w = NULL;
+	listint_t *u, *v, *shrt = *head;
+	listint_t *cpy = NULL;
 
-	if (*head == NULL || top->next == NULL)
+	if (*head == NULL || (*head)->next == NULL)
 		return (1);
-	while (top != NULL)
+
+	while (1)
 	{
-		add_node(&v, top->n);
-		top = top->next;
-	}
-	w = v;
-	while (*head != NULL)
-	{
-		if ((*head)->n != w->n)
+		v = v->next->next;
+		if (!v)
 		{
-			free_listint(v);
-			return (0);
+			cpy = u->next;
+			break;
 		}
-		*head = (*head)->next;
-		w = w->next;
+		if (!v->next)
+		{
+			cpy = u->next->next;
+			break;
+		}
+		u = u->next;
 	}
-	free_listint(v);
-	return (1);
+	moveback_listint(&cpy);
+
+	while (cpy && shrt)
+	{
+		if (shrt->n == cpy->n)
+		{
+			cpy = cpy->next;
+			shrt = shrt->next;
+		}
+		else
+			return (0);
+	}
+
+	if (!cpy)
+		return (1);
+	return (0);
 }
