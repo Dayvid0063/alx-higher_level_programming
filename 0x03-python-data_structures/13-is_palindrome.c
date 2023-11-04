@@ -31,7 +31,7 @@ void moveback_listint(listint_t **head)
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *u, *v, *shrt = *head;
+	listint_t *u = *head, *v = *head, *shrt = *head;
 	listint_t *cpy = NULL;
 
 	if (*head == NULL || (*head)->next == NULL)
