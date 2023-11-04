@@ -6,4 +6,4 @@ def multiple_returns(sentence):
             size = len(sentence)
         else:
             size = 0
-            return (size, sentence if not sentence else sentence[:1])
+        return size, sentence if not sentence else sentence[:1]
