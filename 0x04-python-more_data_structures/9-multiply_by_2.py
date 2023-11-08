@@ -4,4 +4,4 @@ def multiply_by_2(a_dictionary):
     v = list(u.keys())
     for k in v:
         u[k] *= 2
-        return u
+    return (u)
