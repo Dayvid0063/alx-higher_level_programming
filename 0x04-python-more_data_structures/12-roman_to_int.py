@@ -10,4 +10,4 @@ def roman_to_int(roman_string: str):
             v += u[i]
         else:
             v -= u[i]
-            return v
+    return v
