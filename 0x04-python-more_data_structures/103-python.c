@@ -6,7 +6,8 @@
  */
 void print_python_bytes(PyObject *p)
 {
-	int u, size;
+	int u;
+	long int size;
 	char *str = NULL;
 
 	printf("[.] bytes object info\n");
@@ -33,7 +34,8 @@ void print_python_bytes(PyObject *p)
  */
 void print_python_list(PyObject *p)
 {
-	int u, size = PyList_Size(p);
+	int u;
+	long int size = PyList_Size(p);
 	allocate = list->allocated;
 	PyListObject *list = (PyListObject *)p;
 	const char *data;
