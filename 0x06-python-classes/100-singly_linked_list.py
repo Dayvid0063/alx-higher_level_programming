@@ -42,26 +42,26 @@ class SinglyLinkedList:
 
     def sorted_insert(self, value):
         """new node insertion to the SinglyLinkedList"""
-        new = Node(value)
+        u = Node(value)
         if self.__head is None:
-            new.next_node = None
-            self.__head = new
+            u.next_node = None
+            self.__head = u
         elif self.__head.data > value:
-            new.next_node = self.__head
-            self.__head = new
+            u.next_node = self.__head
+            self.__head = u
         else:
-            tmp = self.__head
-            while (tmp.next_node is not None and
-                    tmp.next_node.data < value):
-                tmp = tmp.next_node
-            new.next_node = tmp.next_node
-            tmp.next_node = new
+            v = self.__head
+            while (v.next_node is not None and
+                    v.next_node.data < value):
+                v = v.next_node
+            u.next_node = v.next_node
+            v.next_node = u
 
     def __str__(self):
         """print rep. of a SinglyLinked list"""
         values = []
-        tmp = self.__head
-        while tmp is not None:
-            values.append(str(tmp.data))
-            tmp = tmp.next_node
+        v = self.__head
+        while v is not None:
+            values.append(str(v.data))
+            v = v.next_node
         return ('\n'.join(values))
