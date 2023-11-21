@@ -46,17 +46,17 @@ class SinglyLinkedList:
             new.next_node = self.__head
             self.__head = new
         else:
-            v = self.__head
-            while (v.next_node is not None and
-                    v.next_node.data < value):
-                v = v.next_node
-                new.next_node = v.next_node
-                v.next_node = new
+            tmp = self.__head
+            while (tmp.next_node is not None and
+                    tmp.next_node.data < value):
+                tmp = tmp.next_node
+                new.next_node = tmp.next_node
+                tmp.next_node = new
 
     def __str__(self):
         values = []
-        v = self.__head
-        while v is not None:
-            values.append(str(v.data))
-            v = v.next_node
+        tmp = self.__head
+        while tmp is not None:
+            values.append(str(tmp.data))
+            tmp = tmp.next_node
         return ('\n'.join(values))
