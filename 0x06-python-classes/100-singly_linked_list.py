@@ -6,12 +6,14 @@ class Node:
     """singly-linked list node representation"""
 
     def __init__(self, data, next_node=None):
+        """initialize"""
         self.data = data
         self.next_node = next_node
 
     @property
     def data(self):
-        return self.__data
+        """data set"""
+        return (self.__data)
 
     @data.setter
     def data(self, value):
@@ -21,7 +23,8 @@ class Node:
 
     @property
     def next_node(self):
-        return self.__next_node
+        """set next_node"""
+        return (self.__next_node)
 
     @next_node.setter
     def next_node(self, value):
@@ -31,7 +34,7 @@ class Node:
 
 
 class SinglyLinkedList:
-    """singly-linked list"""
+    """singly-linked list representation"""
 
     def __init__(self):
         """initialize"""
