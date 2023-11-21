@@ -1,18 +1,22 @@
 #!/usr/bin/python3
-"""singly-linked list class defined"""
+"""Define classes for a singly-linked list."""
 
 
 class Node:
-    """singly-linked list node representation"""
+    """Represent a node in a singly-linked list."""
 
     def __init__(self, data, next_node=None):
-        """initialize"""
+        """Initialize a new Node.
+        Args:
+            data (int): The data of the new Node.
+            next_node (Node): The next node of the new Node.
+        """
         self.data = data
         self.next_node = next_node
 
     @property
     def data(self):
-        """data set"""
+        """Get/set the data of the Node."""
         return (self.__data)
 
     @data.setter
@@ -23,7 +27,7 @@ class Node:
 
     @property
     def next_node(self):
-        """set next_node"""
+        """Get/set the next_node of the Node."""
         return (self.__next_node)
 
     @next_node.setter
@@ -34,14 +38,19 @@ class Node:
 
 
 class SinglyLinkedList:
-    """singly-linked list representation"""
+    """Represent a singly-linked list."""
 
     def __init__(self):
-        """initialize"""
+        """Initalize a new SinglyLinkedList."""
         self.__head = None
 
     def sorted_insert(self, value):
-        """adds new node to the SinglyLinked list"""
+        """Insert a new Node to the SinglyLinkedList.
+        The node is inserted into the list at the correct
+        ordered numerical position.
+        Args:
+            value (Node): The new Node to insert.
+        """
         new = Node(value)
         if self.__head is None:
             new.next_node = None
@@ -54,11 +63,11 @@ class SinglyLinkedList:
             while (tmp.next_node is not None and
                     tmp.next_node.data < value):
                 tmp = tmp.next_node
-                new.next_node = tmp.next_node
-                tmp.next_node = new
+            new.next_node = tmp.next_node
+            tmp.next_node = new
 
     def __str__(self):
-        """SinglyLinked list rep. to define the print"""
+        """Define the print() representation of a SinglyLinkedList."""
         values = []
         tmp = self.__head
         while tmp is not None:
