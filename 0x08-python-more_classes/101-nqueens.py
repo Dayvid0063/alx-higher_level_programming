@@ -11,21 +11,24 @@ def init_board(n):
     [row.append(' ') for u in range(n) for row in board]
     return board
 
+
 def board_deepcopy(board):
     """Return a deepcopy"""
     if isinstance(board, list):
         return list(map(board_deepcopy, board))
     return board
 
+
 def get_solution(board):
     """Return the solution list"""
-    fix = []
+    solution = []
     for r in range(len(board)):
         for c in range(len(board)):
             if board[r][c] == "Q":
-                fix.append([r, c])
+                solution.append([r, c])
                 break
-    return fix
+    return solution
+
 
 def xout(board, row, col):
     """xout positions on a chessboard"""
@@ -62,17 +65,18 @@ def xout(board, row, col):
         board[r][c] = "x"
         c -= 1
 
+
 def recursive_solve(board, row, queens, solutions):
     """Recursively fix an N-queens"""
     if queens == len(board):
         solutions.append(get_solution(board))
         return solutions
 
-    for n in range(len(board)):
-        if board[row][n] == " ":
+    for c in range(len(board)):
+        if board[row][c] == " ":
             v = board_deepcopy(board)
-            v[row][n] = "Q"
-            xout(v, row, n)
+            v[row][c] = "Q"
+            xout(v, row, c)
             solutions = recursive_solve(v, row + 1,
                                         queens + 1, solutions)
 
