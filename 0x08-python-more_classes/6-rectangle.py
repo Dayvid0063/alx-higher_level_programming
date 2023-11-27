@@ -3,10 +3,12 @@
 
 
 class Rectangle:
-    """class rectangle."""
+    """class rectangle"""
+    instance_count = 0
 
     def __init__(self, width=0, height=0):
         """Initialize rectangle"""
+        type(self).instance_count += 1
         self.width = width
         self.height = height
 
@@ -43,7 +45,7 @@ class Rectangle:
     def perimeter(self):
         """Return perimeter"""
         if self.__width == 0 or self.__height == 0:
-            return 0
+            return (0)
         return self.__width * 2 + self.__height * 2
 
     def __str__(self):
@@ -63,3 +65,8 @@ class Rectangle:
         rec = "Rectangle(" + str(self.__width)
         rec += ", " + str(self.__height) + ")"
         return rec
+
+    def __del__(self):
+        """delete rectangle/print message"""
+        type(self).instance_count -= 1
+        print("Bye rectangle...")

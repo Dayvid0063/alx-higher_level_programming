@@ -59,10 +59,10 @@ class Rectangle:
         return ""
 
     def __repr__(self):
-        rect = "Rectangle(" + str(self.__width)
-        rect += ", " + str(self.__height) + ")"
-        return rect
+        rec = "Rectangle(" + str(self.__width)
+        rec += ", " + str(self.__height) + ")"
+        return rec
 
     def __del__(self):
-        """delete the rectangle"""
+        """delete rectangle/print message"""
         print("Bye rectangle...")
