@@ -70,10 +70,10 @@ def recursive_solve(board, row, queens, solutions):
 
     for n in range(len(board)):
         if board[row][n] == " ":
-            v = board_deepcopy(board)
-            v[row][n] = "Q"
-            xout(v, row, n)
-            solutions = recursive_solve(v, row + 1,
+            tmp_solution = board_deepcopy(board)
+            tmp_solution[row][n] = "Q"
+            xout(tmp_solution, row, n)
+            solutions = recursive_solve(tmp_solution, row + 1,
                                         queens + 1, solutions)
 
     return solutions
