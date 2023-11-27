@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-"""class Rectangle that defines a rectangle"""
+"""class Rectangle that defines a rectangle by"""
 
 
 class Rectangle:
-    """class rectangle"""
+    """class rectangle."""
+
     def __init__(self, width=0, height=0):
         """Initialize rectangle"""
         self.width = width
@@ -45,14 +46,20 @@ class Rectangle:
             return 0
         return self.__width * 2 + self.__height * 2
 
-    def __str__(self) -> str:
+    def __str__(self):
         """rectangle representation with the # character"""
         if self.__width == 0 or self.__height == 0:
             return ("")
-        rec = ""
+
+        rec = []
         for u in range(self.__height):
-            for v in range(self.__width):
-                rec += "#"
-            if u < self.__height - 1:
-                rec += "\n"
-        return rec
+            [rec.append('#') for v in range(self.__width)]
+            if u != self.__height - 1:
+                rec.append("\n")
+        return ("".join(rec))
+
+    def __repr__(self):
+        """Return str"""
+        rect = "Rectangle(" + str(self.__width)
+        rect += ", " + str(self.__height) + ")"
+        return rect
