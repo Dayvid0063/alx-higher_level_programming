@@ -7,8 +7,8 @@ import sys
 def init_board(n):
     """Initialize n chessboard"""
     board = []
-    [board.append([]) for u in range(n)]
-    [row.append(' ') for u in range(n) for row in board]
+    [board.append([]) for i in range(n)]
+    [row.append(' ') for i in range(n) for row in board]
     return board
 
 
@@ -74,13 +74,14 @@ def recursive_solve(board, row, queens, solutions):
 
     for c in range(len(board)):
         if board[row][c] == " ":
-            v = board_deepcopy(board)
-            v[row][c] = "Q"
-            xout(v, row, c)
-            solutions = recursive_solve(v, row + 1,
+            tmp_board = board_deepcopy(board)
+            tmp_board[row][c] = "Q"
+            xout(tmp_board, row, c)
+            solutions = recursive_solve(tmp_board, row + 1,
                                         queens + 1, solutions)
 
     return solutions
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
