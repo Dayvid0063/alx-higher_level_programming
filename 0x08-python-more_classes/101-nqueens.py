@@ -19,13 +19,13 @@ def board_deepcopy(board):
 
 def get_solution(board):
     """Return the solution list"""
-    fix = []
+    solution = []
     for m in range(len(board)):
         for n in range(len(board)):
             if board[m][n] == "Q":
-                fix.append([m, n])
+                solution.append([m, n])
                 break
-    return fix
+    return solution
 
 def xout(board, row, col):
     """xout positions on a chessboard"""
