@@ -1,6 +1,6 @@
 #!/usr/bin/python3
+"""function returns a copy of a list"""
 
 
 def copy_list(mylist):
-    """function returns a copy of a list"""
-    return mylist.copy()
+    return (mylist.copy())
