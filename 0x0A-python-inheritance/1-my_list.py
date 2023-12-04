@@ -5,11 +5,11 @@ a class MyList that inherits from list
 
 
 class MyList(list):
-    """list subclass"""
+    """contains list"""
+    def __init__(self):
+        """initialize obj"""
+        super().__init__()
 
     def print_sorted(self):
-        """
-        print sorted list
-        """
-
+        """sorted list printed"""
         print(sorted(self))
