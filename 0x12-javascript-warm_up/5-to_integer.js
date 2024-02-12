@@ -1,11 +1,7 @@
 #!/usr/bin/node
 
 // Convert the 1st cmd line arg to an int
-const num = +process.argv[2];
+const n = Number.parseInt(process.argv[2]);
 
-// Check if the converted value is a valid number
-if (!isNaN(num)) {
-    console.log("My number:", num);
-} else {
-    console.log("Not a number");
-}
+// Check if the converted value is NaN
+console.log(Number.isNaN(n) ? 'Not a number' : 'My number: ' + n);
