@@ -14,13 +14,9 @@ if __name__ == "__main__":
                            db=sys.argv[3])
 
     cur = conn.cursor()
-    cur.execute(
-            'SELECT cities.name FROM cities' +
-            ' INNER JOIN states ON cities.state_id = states.id' +
-            ' WHERE CAST(states.name AS BINARY) = %s' +
-            ' ORDER BY cities.id ASC;',
-            (sys.argv[4])
-        )
+    cur.execute("""SELECT cities.name FROM
+                cities INNER JOIN states ON states.id=cities.state_id
+                WHERE states.name=%s""", (sys.argv[4],))
     rows = cur.fetchall()
     print(', '.join(map(lambda x: x[0], rows)))
 
