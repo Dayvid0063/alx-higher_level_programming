@@ -19,7 +19,7 @@ if __name__ == "__main__":
             ' INNER JOIN states ON cities.state_id = states.id' +
             ' WHERE CAST(states.name AS BINARY) = %s' +
             ' ORDER BY cities.id ASC;',
-            [sys.argv[4]]
+            (sys.argv[4])
         )
     rows = cur.fetchall()
 
