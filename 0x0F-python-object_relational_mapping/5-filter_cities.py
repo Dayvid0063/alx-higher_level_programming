@@ -22,9 +22,7 @@ if __name__ == "__main__":
             (sys.argv[4])
         )
     rows = cur.fetchall()
-
-    for res in rows:
-        print(res)
+    print(', '.join(map(lambda x: x[0], rows)))
 
     cur.close()
     conn.close()
