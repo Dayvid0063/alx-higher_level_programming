@@ -13,6 +13,6 @@ if __name__ == "__main__":
     address = "https://api.github.com/user"
     ans = requests.get(address, auth=(sys.argv[1], sys.argv[2]))
 
-    if ans.status_code >= 400:
+    if ans.status_code == 200:
         info = ans.json().get('id')
         print(info)
