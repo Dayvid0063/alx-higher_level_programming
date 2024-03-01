@@ -14,7 +14,7 @@ if __name__ == "__main__":
     ans = requests.get(address, auth=(sys.argv[1], sys.argv[2]))
 
     if ans.status_code >= 400:
-        info = ans.json()
-        print(info.get('id'))
+        info = ans.json().get('id')
+        print(info)
     else:
-        print("None")
+        print("")
