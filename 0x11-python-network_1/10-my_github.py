@@ -17,4 +17,4 @@ if __name__ == "__main__":
         info = ans.json()
         print(info.get('id'))
     else:
-        print("")
+        print("None")
