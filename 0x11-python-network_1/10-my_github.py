@@ -16,5 +16,3 @@ if __name__ == "__main__":
     if ans.status_code >= 400:
         info = ans.json().get('id')
         print(info)
-    else:
-        print("")
