@@ -4,11 +4,10 @@ const request = require('request');
 const link = 'https://swapi-api.alx-tools.com/api/films/';
 const id = process.argv[2];
 
-request(link + id, (x, body) => {
+request(link + id, (x, response, body) => {
   if (x) {
     console.log(x);
-  } else {
-    const info = JSON.parse(body);
-    console.log(info.title);
   }
+  const info = JSON.parse(body);
+  console.log(info.title);
 });
