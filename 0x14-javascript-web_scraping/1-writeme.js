@@ -7,8 +7,6 @@ if (process.argv.length > 3) {
 }
 
 // Writes to file
-fs.readFile(process.argv[2], process.argv[3], 'utf-8', x => {
-  if (x) {
-    console.log(x);
-  }
+fs.writeFile(process.argv[2], process.argv[3], x => {
+  if (x) console.log(x);
 });
