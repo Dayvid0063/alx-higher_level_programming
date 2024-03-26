@@ -8,6 +8,7 @@ request(link + id, (x, body) => {
   if (x) {
     console.log(x);
   } else {
-    console.log(JSON.parse(body).title);
+    const info = JSON.parse(body);
+    console.log(info.title);
   }
 });
