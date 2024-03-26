@@ -7,10 +7,10 @@ if (process.argv.length <= 2) {
 }
 
 // Reads file
-fs.readFile(process.argv[2], (err, data) => {
-  if (err) {
-    console.error(err);
+fs.readFile(process.argv[2], (x, info) => {
+  if (x) {
+    console.error(x);
   } else {
-    console.log(data.toString('utf-8'));
+    console.log(info.toString('utf-8'));
   }
 });
